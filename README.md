@@ -1,5 +1,7 @@
 # Plex Mini for Omarchy
 
+[![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-pink)](https://github.com/sponsors/joshuaswarren)
+
 A floating, resizable Plex miniplayer for Omarchy. Open it and type immediately to search your library, or pick from Continue Watching. Video plays inside the panel by default, with resume, seek, pause, stop, scrobbling, and transcode fallback.
 
 ![Plex Mini — Continue Watching](preview.png)
@@ -80,6 +82,14 @@ node --test tests/*.test.mjs
 ```
 
 The suite covers validation, bounded response mapping, grouped search results, playback metadata and resume extraction, time formatting, plus static integration contracts for buffering caps, sticky resume, pause-on-close, live search, and keyboard focus.
+
+## Support
+
+Every bit of support helps keep omarchy-plexmini alive and free. If you are able, [sponsor on GitHub](https://github.com/sponsors/joshuaswarren) or send a Lightning donation to `joshuaswarren@strike.me` to directly fund continued development and new integrations.
+
+[![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-pink?style=for-the-badge)](https://github.com/sponsors/joshuaswarren)
+
+If financial support is not an option, you can still make a big difference: [star the repo](https://github.com/joshuaswarren/omarchy-plexmini), share it, or recommend it to a colleague. Word of mouth is how most people find omarchy-plexmini.
 
 ## License
 
