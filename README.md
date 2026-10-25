@@ -4,17 +4,24 @@
 
 A floating, resizable Plex miniplayer for Omarchy. Open it and type immediately to search your library, or pick from Continue Watching. Video plays inside the panel by default, with resume, seek, pause, stop, scrobbling, and transcode fallback.
 
-![Plex Mini — Continue Watching](preview.png)
+![Plex Mini: Continue Watching](preview.png)
 
 ![Plex Mini demo](assets/demo.gif)
 
 ## Install
 
-Install **Plex Mini** from Omarchy Plugin Control or use the command shown on its marketplace page.
+```bash
+omarchy plugin add https://github.com/joshuaswarren/omarchy-plexmini.git --enable
+```
+
 
 ## Remove
 
-Uninstall it from Plugin Control. For a complete reset:
+```bash
+omarchy plugin remove io.github.joshuaswarren.plexmini
+```
+
+For a complete reset, also delete the state and config directories:
 
 ```bash
 rm -rf ~/.config/plexmini ~/.local/state/plexmini
@@ -27,21 +34,21 @@ rm -rf ~/.config/plexmini ~/.local/state/plexmini
 - Plex server URL and `X-Plex-Token`
 - Optional mpv backend: `mpv` and `socat`
 
-The default `internal` backend renders inside the panel via QtMultimedia. Set `"backend": "mpv"` only when you explicitly want a separate dGPU-backed mpv window.
+The default `internal` backend plays inside the panel through QtMultimedia. Set `"backend": "mpv"` for a separate mpv window.
 
 ## Setup
 
 Open Plex Mini and enter:
 
-1. Your server origin, e.g. `http://192.168.1.50:32400`
-2. An `X-Plex-Token` — follow Plex's official guide: [Finding an authentication token / X-Plex-Token](https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/)
+1. Your server origin, for example `http://plex.example.com:32400` (replace the hostname with your own).
+2. An `X-Plex-Token`. See Plex's [authentication-token guide](https://support.plex.tv/articles/204059436-finding-an-authentication-token-x-plex-token/).
 
 The linked article is maintained by Plex and documents the supported web-app XML method, including where the token appears.
 
 Credentials are validated and stored at `~/.config/plexmini/config.json` with mode `0600` inside a `0700` directory.
 
 ```json
-{ "server": "http://192.168.1.50:32400", "token": "YOUR_TOKEN", "backend": "internal" }
+{ "server": "http://plex.example.com:32400", "token": "YOUR_TOKEN", "backend": "internal" }
 ```
 
 ## Interaction
@@ -55,7 +62,7 @@ Credentials are validated and stored at `~/.config/plexmini/config.json` with mo
 - `M`: mute internal playback
 - `Esc` or close: pause, then hide
 - Drag header: move panel
-- Drag top-left grip: resize (280–900 px), persisted
+- Drag top-left grip: resize from 280 to 900 px; the size is saved
 
 During playback the selector collapses; only video and controls remain. Direct play resumes from Plex's `viewOffset`; progress reports every 10 seconds and scrobbles at 90%. Unsupported media retries through Plex universal-transcode HLS.
 
@@ -85,12 +92,8 @@ The suite covers validation, bounded response mapping, grouped search results, p
 
 ## Support
 
-Every bit of support helps keep omarchy-plexmini alive and free. If you are able, [sponsor on GitHub](https://github.com/sponsors/joshuaswarren) or send a Lightning donation to `joshuaswarren@strike.me` to directly fund continued development and new integrations.
-
-[![Sponsor](https://img.shields.io/badge/Sponsor-%E2%9D%A4-pink?style=for-the-badge)](https://github.com/sponsors/joshuaswarren)
-
-If financial support is not an option, you can still make a big difference: [star the repo](https://github.com/joshuaswarren/omarchy-plexmini), share it, or recommend it to a colleague. Word of mouth is how most people find omarchy-plexmini.
+[Sponsor on GitHub](https://github.com/sponsors/joshuaswarren) or use Lightning at `joshuaswarren@strike.me`.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).
